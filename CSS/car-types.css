@@ -1,0 +1,710 @@
+/* 폐차종류 페이지 - 현대적 다크모드 스타일 */
+
+/* CSS 변수 정의 */
+:root {
+    /* 주요 색상 */
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary-color: #64748b;
+    --secondary-hover: #475569;
+    
+    /* 배경 색상 */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-card: #1e293b;
+    --bg-hover: #334155;
+    
+    /* 텍스트 색상 */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-accent: #60a5fa;
+    
+    /* 테두리 색상 */
+    --border-color: #334155;
+    --border-light: #475569;
+    
+    /* 그라디언트 */
+    --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    --gradient-accent: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+    
+    /* 그림자 */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    
+    /* 애니메이션 */
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 헤어로 섹션 */
+.car-types-hero {
+    padding: 140px 0 80px;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.car-types-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.car-types-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.car-types-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s ease-out;
+    text-align: center;
+}
+
+.car-types-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* 차량 종류 선택 섹션 */
+.car-types-selection {
+    padding: 80px 0;
+}
+
+.selection-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.selection-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.selection-subtitle {
+    font-size: 18px;
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 폐차종류 개요 */
+.car-types-overview {
+    padding: 80px 0;
+}
+
+.overview-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 차량 종류 카테고리 */
+.car-categories {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.car-categories .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.category-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+
+.category-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.category-card:hover,
+.category-card.active {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.category-card.active::before {
+    opacity: 1;
+}
+
+.car-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.car-category:hover,
+.car-category.active {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.car-category.active::before {
+    opacity: 1;
+}
+
+.category-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    transition: var(--transition-normal);
+}
+
+.category-card:hover .category-icon,
+.category-card.active .category-icon {
+    transform: scale(1.1);
+}
+
+.category-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.category-arrow {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    color: var(--primary-color);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.category-card:hover .category-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* 차량 종류 상세 정보 */
+.car-details {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.car-detail {
+    display: none;
+}
+
+.car-detail.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+    justify-content: center;
+    text-align: center;
+}
+
+.detail-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+}
+
+.detail-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.detail-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-light);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.detail-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-section h4 i {
+    color: var(--primary-color);
+}
+
+.detail-section p,
+.detail-section ul {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-section li {
+    padding: 4px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.detail-section li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 비교 테이블 */
+/* 비교 테이블 */
+.comparison-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.comparison-title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+}
+
+.comparison-table {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.comparison-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 20px 16px;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.comparison-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover {
+    background: var(--bg-hover);
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:hover {
+    background: var(--bg-hover);
+}
+
+.difficulty {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.difficulty-easy {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+}
+
+.difficulty-medium {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.difficulty-hard {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+/* notice card */
+.notice-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 32px;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* CTA 섹션 */
+.cta-section {
+    background: var(--bg-secondary);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.car-types-cta .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.cta-box {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+}
+
+.cta-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.cta-text {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .car-types-hero-title {
+        font-size: 36px;
+    }
+    
+    .car-types-hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .selection-title {
+        font-size: 28px;
+    }
+    
+    .car-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .car-category {
+        padding: 20px;
+    }
+    
+    .car-details {
+        padding: 24px;
+    }
+    
+    .detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .comparison-table {
+        overflow-x: auto;
+    }
+    
+    .comparison-table table {
+        min-width: 600px;
+    }
+    
+    .cta-box {
+        padding: 32px;
+    }
+    
+    .cta-title {
+        font-size: 24px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .car-types-hero-container,
+    .selection-container {
+        padding: 0 16px;
+    }
+    
+    .car-category {
+        padding: 16px;
+    }
+    
+    .car-details {
+        padding: 20px;
+    }
+    
+    .detail-title {
+        font-size: 24px;
+    }
+    
+    .comparison-title {
+        font-size: 24px;
+    }
+    
+    .cta-box {
+        padding: 24px;
+    }
+}
+
+/* 특별 안내 */
+.special-notice {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* 비교 테이블 */
+.comparison-table {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-slow);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 전체 컨테이너 스타일 개선 */
+.container,
+.car-types-hero-container,
+.selection-container,
+.car-details,
+.comparison-table,
+.cta-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+/* 특별한 전체 너비 섹션 */
+.car-types-hero-container,
+.car-categories .container,
+.car-types-cta .container {
+    max-width: 1400px;
+}
