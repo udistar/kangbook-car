@@ -1,0 +1,40 @@
+# 전체 프로젝트 압축 파일
+# kangbook-car 전체 프로젝트가 포함된 ZIP 파일
+# 생성일: 2026-01-19
+
+이 ZIP 파일에는 다음 파일들이 포함되어 있습니다:
+
+## HTML 파일
+- index.html (메인 페이지)
+- guide.html (폐차 안내 페이지)
+- car-types.html (폐차 종류 페이지)
+- test-alignment.html (테스트 파일)
+
+## CSS 파일
+- css/style.css (메인 스타일)
+- css/guide.css (폐차 안내 스타일)
+- css/car-types.css (폐차 종류 스타일)
+
+## JavaScript 파일
+- js/main.js (메인 기능)
+- js/guide.js (폐차 안내 기능)
+- js/car-types.js (폐차 종류 기능)
+
+## 이미지 파일
+- images/logo.png (회사 로고)
+
+## 문서
+- README.md (프로젝트 설명)
+
+## 프로젝트 특징
+✅ 현대적인 다크모드 디자인
+✅ 반응형 웹 디자인
+✅ SEO 최적화
+✅ Schema.org 마크업
+✅ 카카오톡 실시간 채팅 연동
+✅ 네이버/카카오 지도 통합
+✅ 폐차 종류별 상세 정보
+✅ 비교 표 기능
+
+이 프로젝트는 Netlify에 바로 배포 가능한 상태입니다.
+GitHub에 업로드 후 Netlify와 연동하세요.
